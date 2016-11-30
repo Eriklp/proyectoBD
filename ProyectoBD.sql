@@ -2,9 +2,10 @@
 --Universidad del Valle
 --Escuela de Ingenieria de Sistemas
 --Bases de Datos
---Camilo José Cruz Rivera
---1428907
-
+--Camilo José Cruz Rivera--1428907
+--Erik Lopez Pachco--1430406
+--Robert leandro quiceno --¿?
+--Juan Carlos Viteri --¿?
 ------------------------------------------------------------------------------------------------------------------------------------------
 DROP TABLE if exists RUTA CASCADE;
 CREATE TABLE  RUTA 
@@ -196,3 +197,13 @@ CREATE TABLE  RECLAMOS_REALIZADOS
         CONSTRAINT auxiliar_id_fk FOREIGN KEY (auxiliar_id) REFERENCES EMPLEADO (empleado_id),
 	CONSTRAINT tarjeta_id_fk FOREIGN KEY (tarjeta_id) REFERENCES TARJETA (tarjeta_id)
    );
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+DROP TABLE IF exists ESTACION_RUTA CASCADE;
+CREATE TABLE ESTACION_RUTA
+(
+	id_ruta INTEGER NOT NULL,
+	id_estacion INTEGER NOT NULL,
+	CONSTRAINT id_ruta_fk FOREIGN KEY (id_ruta) REFERENCES RUTA(nombre),
+	CONSTRAINT id_estacion_fk FOREIGN KEY (id_estacion) REFERENCES ESTACION(nombre)
+);
